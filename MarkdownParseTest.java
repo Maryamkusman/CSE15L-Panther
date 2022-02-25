@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.ArrayList;
 
 public class MarkdownParseTest {
+    ArrayList<String> emptyArrayList = new ArrayList<>();
+
     @Test
     public void addition() {
         assertEquals(2, 1 + 1);
@@ -84,5 +87,23 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         List<String> expected = List.of();
         assertEquals(expected, MarkdownParse.getLinks(contents));
+    }
+    @Test
+    public void getLinksJoeTest9() throws IOException{
+        Path fileName = Path.of("./joe-test-files/test-file11.md");
+        String contents = Files.readString(fileName);
+        assertEquals(emptyArrayList, MarkdownParse.getLinks(contents));
+    }
+    @Test
+    public void getLinksJoeTest10() throws IOException{
+        Path fileName = Path.of("./joe-test-files/test-file12.md");
+        String contents = Files.readString(fileName);
+        assertEquals(emptyArrayList, MarkdownParse.getLinks(contents));
+    }
+    @Test
+    public void getLinksJoeTest11() throws IOException{
+        Path fileName = Path.of("./joe-test-files/test-file13.md");
+        String contents = Files.readString(fileName);
+        assertEquals(emptyArrayList, MarkdownParse.getLinks(contents));
     }
 }
